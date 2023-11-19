@@ -9,21 +9,32 @@ function setup(){
     numCirculos = createSlider(1, 12, 1);
     numCirculos.elt.id = "circulos";
     
-    velocidade = createSlider(1, 20, 1);
+    velocidade = createSlider(1, 100, 1);
     velocidade.elt.id = "velocidade";
     console.log(velocidade);
 }
 
 const botao_pausa = document.getElementById("parar");
-
-let executar = true;
-botao_pausa.addEventListener("click", ()=>{
+let executar = false;
+botao_pausa.addEventListener("click", ()=>{    
     executar = !executar;
-})
+    if(executar){
+        botao_pausa.textContent = "Pausar";
+    }
+    else{
+        botao_pausa.textContent = "Continuar";
+    }
+});
+
+const botao_exibir = document.getElementById("exibicao");
+let exibir = true
+botao_exibir.addEventListener("click", ()=>{    
+    exibir = !exibir;
+});
 
 //Essa função é rodada multiplas vezes por segundo enquanto o programa é executado
 function draw(){
-    if(executar){
+    if(executar || angulo === 0){
         background(0);
         translate(200, 250);
         
@@ -60,21 +71,43 @@ function draw(){
         if(listaPontos.length > 500){
             listaPontos.pop();
         }
+        
+        if(exibir){
+            beginShape();
+            noFill();
+            for(let i =0; i<listaPontos.length; i++){
+                vertex(i, listaPontos[i]);
+            }
+            endShape();
+        }
+        else{
+            for(let i=0; i<listaPontos.length; i++){
+                ellipse(i, listaPontos[i], 4);
+            }
+        }
 
         /*
-        for(let i =0; i<wave.length; i++){
-            ellipse(i, wave[i], 4);
+        let input_circulos = document.getElementById("circulos");
+        let input_velocidade = document.getElementById("velocidade");
+        
+        const p_circulo = document.createElement("p");
+        p_circulo.textContent = "Número circulos: " + input_circulos.value;
+        p_circulos.id = "mostrar_circulos";
+
+        const p_velocidade = document.createElement("p");
+        p_velocidade.textContent = "Velocidade: " + input_velocidade.value;
+        p_velocidade.id = "mostrar_velocidade";
+
+        let main = document.querySelector("main")
+        if(main.getElementById("mostrar_circulos")){
+            main.replaceChild(p_circulo, main.getElementById("mostrar_circulos"));
+            main.replaceChild(p_velocidade, main.getElementById("mostrar_velocidade"));
+        }
+        else{
+            main.appendChild(p_circulos);
+            main.appendChild(p_velocidade);
         }
         */
-            
-        beginShape();
-        noFill();
-        for(let i =0; i<listaPontos.length; i++){
-            console.log("caramba!");
-            vertex(i, listaPontos[i]);
-        }
-        endShape();
-
         angulo -= velocidade.value()/100;
         //console.log(document.getElementById("circulos"));
     }
