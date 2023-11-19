@@ -26,6 +26,8 @@ botao_pausa.addEventListener("click", ()=>{
     }
 });
 
+
+
 const botao_exibir = document.getElementById("exibicao");
 let exibir = true
 botao_exibir.addEventListener("click", ()=>{    
@@ -58,7 +60,7 @@ function draw(){
             fill(255);
             stroke(255);
             line(xAnterior, yAnterior, x, y);
-            //ellipse(x, y, 8);
+            //ellipse(x, y, 4);
         }
         listaPontos.unshift(y);
         translate(200, 0);
@@ -85,30 +87,10 @@ function draw(){
                 ellipse(i, listaPontos[i], 4);
             }
         }
-
-        /*
-        let input_circulos = document.getElementById("circulos");
-        let input_velocidade = document.getElementById("velocidade");
         
-        const p_circulo = document.createElement("p");
-        p_circulo.textContent = "Número circulos: " + input_circulos.value;
-        p_circulos.id = "mostrar_circulos";
+        document.getElementById("display_circulos").children[0].textContent = "Número de circulos: " + numCirculos.value();
+        document.getElementById("display_velocidade").children[0].textContent = "Velocidade: " + velocidade.value()/100;
 
-        const p_velocidade = document.createElement("p");
-        p_velocidade.textContent = "Velocidade: " + input_velocidade.value;
-        p_velocidade.id = "mostrar_velocidade";
-
-        let main = document.querySelector("main")
-        if(main.getElementById("mostrar_circulos")){
-            main.replaceChild(p_circulo, main.getElementById("mostrar_circulos"));
-            main.replaceChild(p_velocidade, main.getElementById("mostrar_velocidade"));
-        }
-        else{
-            main.appendChild(p_circulos);
-            main.appendChild(p_velocidade);
-        }
-        */
         angulo -= velocidade.value()/100;
-        //console.log(document.getElementById("circulos"));
     }
 }

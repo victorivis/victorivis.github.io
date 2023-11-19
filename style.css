@@ -1,10 +1,5 @@
 
 body{
-    /*
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    */
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -15,10 +10,52 @@ h1{
     padding: 2px;
     border: 1px solid black;
     text-align: center;
+    font-size: 36px;
+    margin-left: 40%;
 }
 
-.centro{
-    text-align: center;
-    border-left: 10%;
-    border-right: 10%;
+.espacado{
+    margin-bottom: 30px;
+}
+
+p{
+    font-size: 18px;
+}
+
+button{
+    font-size: 16px;
+}
+
+#player{
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 42px;
+}
+
+#display_circulos, #display_velocidade{
+    display: flex;
+}
+
+#display_circulos p, #display_velocidade p{
+    margin: 0px;
+}
+
+#display_circulos{
+    position: relative;
+    top: 495px;
+    left: 145px;
+}
+
+#display_velocidade{
+    position: relative;
+    top: 475px;
+    left: 510px;
+}
+
+#velocidade{
+    position: relative;
+    left: 230px;
 }

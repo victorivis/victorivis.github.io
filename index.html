@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Miscelâneo</title>
     <script src="https://github.com/processing/p5.js/releases/download/v1.8.0/p5.js"></script>
+    <link rel="shortcut icon" href="Imagens/anao.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <p>Esse repositório a princípio será um miscelâneo de códigos meus sem nenhuma relação entre si</p>
+        <p>O intuito desse repositório a princípio será armazenar um miscelâneo de códigos meus sem nenhuma relação entre si</p>
     </header>
-
-    <br><br><br>
-
     <h1>Série de Fourier</h1>
-    <div>
+    <div class="espacado">
         <p>A série de fourier é uma expressão matemática desenvolvida por Jean Baptiste Joseph Fourier que tem
             aplicações no estudo de ondas sejam elas na música, em trocas de calor ou até mesmo frequência da luz.
             A equação pode ser expressa por: 
@@ -61,17 +59,23 @@
                 </mrow>
             </math>
         </p>
-        
-        
     </div>
 
-    </div>
+    <p>
         Abaixo segue uma visualização da série, os sliders servem para ajustar a velocidade e a quantidade de círculos. Clique em iniciar.
+    </p>
+
+    <div id="player">
         <button id="parar">Iniciar</button>
         <button id="exibicao">Trocar exibição</button>
-        <script src="Javascript/fourier_series.js"></script>
-    <div>
-
     </div>
+        <script src="Javascript/fourier_series.js"></script>
+        <div id="display_circulos">
+            <p>Número de circulos: 1</p>
+        </div>
+        <div id="display_velocidade">
+            <p>Velocidade: 0.01</p>
+        </div>
+    
 </body>
 </html>
